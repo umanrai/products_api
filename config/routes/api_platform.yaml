@@ -2,3 +2,8 @@ api_platform:
     resource: .
     type: api_platform
     prefix: /api
+
+video_upload:
+    path: /api/videos
+    controller: App\Controller\VideoUploadController::class
+    methods: POST

@@ -12,23 +12,27 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource]
 class Menufacturer
 {
-    /** The ID of this Manufacutrer. */
+    /** The ID of the manufacutrer */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    /** The nmae of this Manufacutrer. */
+    /** The name of the manufacutrer */
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    /** The description of this Manufacutrer. */
+    /** The description of the manufacutrer */
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    /** The countryCode of this Manufacutrer. */
+    /** The countryCode of the manufacutrer */
     #[ORM\Column(length: 50)]
     private ?string $countryCode = null;
+
+    /** The date that the manufacutrer was listed */
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $listedDate = null;
 
     public function getId(): ?int
     {
@@ -70,4 +74,17 @@ class Menufacturer
 
         return $this;
     }
+
+    public function getListedDate(): ?\DateTimeInterface
+    {
+        return $this->listedDate;
+    }
+
+    public function setListedDate(\DateTimeInterface $listedDate): static
+    {
+        $this->listedDate = $listedDate;
+
+        return $this;
+    }
+
 }
