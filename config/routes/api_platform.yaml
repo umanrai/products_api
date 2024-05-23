@@ -3,7 +3,12 @@ api_platform:
     type: api_platform
     prefix: /api
 
-video_upload:
-    path: /api/videos
-    controller: App\Controller\VideoUploadController::class
+#video_upload:
+#    path: /api/videos
+#    controller: App\Controller\VideoUploadController::class
+#    methods: POST
+
+create_manufacturer:
+    path: /api/manufacturer
+    controller: App\Controller\ManufacturerController
     methods: POST

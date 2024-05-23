@@ -3,17 +3,18 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Post;
 use App\Controller\VideoUploadController;
 use Symfony\Component\HttpFoundation\File\File;
 use App\Repository\VideoRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use ApiPlatform\Metadata\Post;
+
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 #[ApiResource(
     operations: [
-        new \ApiPlatform\Metadata\Post(
+        new Post(
             controller: VideoUploadController::class,
             deserialize: false
         )
